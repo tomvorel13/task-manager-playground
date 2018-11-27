@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import Form from "./components/Form";
+import TaskList from "./components/TaskList";
+import Navbar from "./components/Navbar";
 
 import "./styles.css";
 
@@ -21,14 +23,15 @@ class App extends Component {
 
   render() {
     const { tasks } = this.state;
-    const taskList = tasks.map(task => <li key={task.text}>{task.text}</li>);
 
     return (
-      <div className="App">
-        <h1>Task Manager</h1>
-        <Form addTaskHandler={this.addTaskHandler} />
-        {taskList}
-      </div>
+      <>
+        <Navbar />
+        <div className="container">
+          <Form addTaskHandler={this.addTaskHandler} />
+          <TaskList tasks={tasks} />
+        </div>
+      </>
     );
   }
 }
