@@ -20,23 +20,28 @@ class Form extends Component {
 
     const newTask = this.state;
 
-    addTaskHandler(newTask);
+    if (newTask.text !== "") {
+      addTaskHandler(newTask);
 
-    this.setState({
-      text: "",
-      completed: false
-    });
+      this.setState({
+        text: "",
+        completed: false
+      });
+    } else {
+      // Form validation
+    }
   };
 
   render() {
     return (
       <div className="row">
         <div className="col-md-8 mx-auto">
-          <form onSubmit={this.onSubmitHandler}>
+          <form className="mb-5" onSubmit={this.onSubmitHandler}>
             <div className="input-group">
               <input
                 className="form-control"
                 type="text"
+                minLength="2"
                 onChange={this.onChangeHandler}
                 value={this.state.text}
               />

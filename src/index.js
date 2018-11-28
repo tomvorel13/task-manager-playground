@@ -9,7 +9,16 @@ import "./styles.css";
 
 class App extends Component {
   state = {
-    tasks: []
+    tasks: [
+      {
+        text: "Go to the gym",
+        completed: false
+      },
+      {
+        text: "Play football",
+        completed: false
+      }
+    ]
   };
 
   addTaskHandler = newTask => {
@@ -21,6 +30,21 @@ class App extends Component {
     });
   };
 
+  crossTaskHandler = filteredTask => {
+    const { tasks } = this.state;
+
+    const filteredArr = tasks.filter(task => task.text === filteredTask.text);
+    const toggleCrossTask = filteredArr[0];
+
+    this.setState(prevState => ({
+      tasks: prevState.tasks.map(task =>
+        task.text === toggleCrossTask.text
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    }));
+  };
+
   render() {
     const { tasks } = this.state;
 
@@ -29,7 +53,7 @@ class App extends Component {
         <Navbar />
         <div className="container">
           <Form addTaskHandler={this.addTaskHandler} />
-          <TaskList tasks={tasks} />
+          <TaskList crossTaskHandler={this.crossTaskHandler} tasks={tasks} />
         </div>
       </>
     );

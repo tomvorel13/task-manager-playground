@@ -1,8 +1,18 @@
 import React from "react";
 
-const TaskList = ({ tasks }) => {
-  const taskList = tasks.map(task => <li key={task.text}>{task.text}</li>);
-  return <ul>{taskList}</ul>;
+import Task from "./Task";
+
+const TaskList = ({ tasks, crossTaskHandler }) => {
+  let taskList = tasks.map((task, index) => (
+    <Task
+      crossTaskHandler={crossTaskHandler}
+      task={task}
+      index={index}
+      key={index}
+    />
+  ));
+
+  return <ul className="list-group">{taskList}</ul>;
 };
 
 export default TaskList;
