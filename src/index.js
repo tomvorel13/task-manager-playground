@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import uuid from "uuid";
 
 import Form from "./components/Form";
 import TaskList from "./components/TaskList";
@@ -11,10 +12,12 @@ class App extends Component {
   state = {
     tasks: [
       {
+        id: uuid(),
         text: "Go to the gym",
         completed: false
       },
       {
+        id: uuid(),
         text: "Play football",
         completed: false
       }
@@ -38,7 +41,7 @@ class App extends Component {
 
     this.setState(prevState => ({
       tasks: prevState.tasks.map(task =>
-        task.text === toggleCrossTask.text
+        task.id === toggleCrossTask.id
           ? { ...task, completed: !task.completed }
           : task
       )

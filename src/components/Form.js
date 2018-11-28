@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import uuid from "uuid";
 
 class Form extends Component {
   state = {
+    id: uuid(),
     text: "",
     completed: false
   };
