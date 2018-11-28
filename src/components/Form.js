@@ -26,6 +26,7 @@ class Form extends Component {
       addTaskHandler(newTask);
 
       this.setState({
+        id: uuid(),
         text: "",
         completed: false
       });
