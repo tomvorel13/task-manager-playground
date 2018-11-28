@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import uuid from "uuid";
+import moment from "moment";
 
 import Form from "./components/Form";
 import TaskList from "./components/TaskList";
@@ -14,12 +15,14 @@ class App extends Component {
       {
         id: uuid(),
         text: "Go to the gym",
-        completed: false
+        completed: false,
+        date: moment().format("Do MMM YYYY, H:mm:ss")
       },
       {
         id: uuid(),
         text: "Play football",
-        completed: false
+        completed: false,
+        date: moment().format("Do MMM YYYY, H:mm:ss")
       }
     ]
   };

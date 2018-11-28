@@ -13,11 +13,13 @@ class Task extends Component {
       <li
         onClick={() => this.onClickHandler(task)}
         style={{
-          textDecoration: task.completed ? "line-through" : "none"
+          textDecoration: task.completed ? "line-through" : "none",
+          fontStyle: task.completed ? "italic" : "normal"
         }}
         className="list-group-item list-group-item-action"
       >
         {task.text}
+        <span className="float-right">{task.date}</span>
       </li>
     );
   }

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import uuid from "uuid";
+import moment from "moment";
 
 class Form extends Component {
   state = {
     id: uuid(),
     text: "",
-    completed: false
+    completed: false,
+    date: null
   };
 
   onChangeHandler = e => {
@@ -21,6 +23,7 @@ class Form extends Component {
     const { addTaskHandler } = this.props;
 
     const newTask = this.state;
+    newTask.date = moment().format("Do MMM YYYY, H:mm:ss");
 
     if (newTask.text !== "") {
       addTaskHandler(newTask);
@@ -28,7 +31,8 @@ class Form extends Component {
       this.setState({
         id: uuid(),
         text: "",
-        completed: false
+        completed: false,
+        date: null
       });
     } else {
       // Form validation
