@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import uuid from "uuid";
 import moment from "moment";
 
-import Form from "./components/Form";
-import TaskList from "./components/TaskList";
 import Navbar from "./components/Navbar";
+import Form from "./components/Form";
+import FilterRadios from "./components/FilterRadios";
+import TaskList from "./components/TaskList";
 
 import "./styles.css";
 
@@ -61,6 +62,7 @@ class App extends Component {
           <div className="row">
             <div className="col-sm-10 col-md-8 col-lg-6 mx-auto">
               <Form addTaskHandler={this.addTaskHandler} />
+              <FilterRadios />
               <TaskList
                 crossTaskHandler={this.crossTaskHandler}
                 tasks={tasks}

@@ -43,7 +43,7 @@ class Form extends Component {
     return (
       <div className="row">
         <div className="col-md-8 mx-auto">
-          <form className="mb-5" onSubmit={this.onSubmitHandler}>
+          <form onSubmit={this.onSubmitHandler}>
             <div className="input-group">
               <input
                 className="form-control"
