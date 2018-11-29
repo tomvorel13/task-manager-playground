@@ -58,8 +58,15 @@ class App extends Component {
       <>
         <Navbar />
         <div className="container">
-          <Form addTaskHandler={this.addTaskHandler} />
-          <TaskList crossTaskHandler={this.crossTaskHandler} tasks={tasks} />
+          <div className="row">
+            <div className="col-sm-10 col-md-8 col-lg-6 mx-auto">
+              <Form addTaskHandler={this.addTaskHandler} />
+              <TaskList
+                crossTaskHandler={this.crossTaskHandler}
+                tasks={tasks}
+              />
+            </div>
+          </div>
         </div>
       </>
     );

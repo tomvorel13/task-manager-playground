@@ -19,7 +19,12 @@ class Task extends Component {
         className="list-group-item list-group-item-action"
       >
         {task.text}
-        <span className="float-right">{task.date}</span>
+        <span
+          style={{ fontSize: "13px" }}
+          className="float-right font-weight-light"
+        >
+          {task.date}
+        </span>
       </li>
     );
   }
